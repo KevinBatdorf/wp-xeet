@@ -7,8 +7,8 @@ delete colors['blueGray'];
 
 // See postcss.config.js for more parsing options.
 module.exports = {
-	// Tnis should match the namespace you use in your css styles.
-	important: '.rust-starter',
+	important: '.wp-xeet',
+	content: ['./src/**/*.{ts,tsx}'],
 	theme: {
 		screens: {
 			xxs: '280px',

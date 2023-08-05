@@ -3,36 +3,42 @@ import { registerBlockType } from '@wordpress/blocks';
 import { __ } from '@wordpress/i18n';
 import blockConfig from './block.json';
 import { Controls } from './editor/Controls';
-import { TheBlock } from './front/TheBlock';
+import { Tweet } from 'react-tweet';
 
 export type Attributes = {
-	text: string;
+	tweetId: string;
+	theme?: 'light' | 'dark';
 };
 
-registerBlockType<Attributes>('kevinbatdorf/rust-starter', {
+registerBlockType<Attributes>('kevinbatdorf/wp-xeet', {
 	...blockConfig,
 	icon: undefined,
-	// Types seem to be mismatched if importing these from block.json
-	attributes: {
-		text: {
-			type: 'string',
-			default: 'Loading...',
-		},
-	},
-
-	title: __('Rust Starter', 'rust-starter'),
-	edit: ({ attributes, setAttributes }) => (
-		<>
-			<Controls attributes={attributes} setAttributes={setAttributes} />
-			<div {...blockProps()}>
-				<TheBlock {...attributes} />
-			</div>
-		</>
-	),
-	save: ({ attributes }) => {
+	attributes: { tweetId: { type: 'string' } },
+	title: __('WP Xeet', 'wp-xeet'),
+	edit: ({ attributes, setAttributes }) => {
+		const { tweetId: id, theme } = attributes;
 		return (
-			<div {...blockProps.save()}>
-				<TheBlock {...attributes} />
+			<>
+				<Controls
+					attributes={attributes}
+					setAttributes={setAttributes}
+				/>
+				<div
+					{...blockProps({
+						className: 'wp-xeet-editor',
+					})}
+					data-theme={theme}>
+					{id && <Tweet id={id} />}
+				</div>
+			</>
+		);
+	},
+	save: ({ attributes }) => {
+		const { tweetId: id, theme } = attributes;
+		if (!id) return null;
+		return (
+			<div {...blockProps.save()} data-theme={theme}>
+				<Tweet id={id} />
 			</div>
 		);
 	},

@@ -8,13 +8,6 @@ module.exports = ({ mode, file }) => ({
 		require('tailwindcss/nesting'),
 		require('tailwindcss')({
 			...tailwind,
-			// Scope the editor css separately from the frontend css.
-			content: file.endsWith('editor.css')
-				? ['./src/editor/**/*.{ts,tsx}']
-				: ['./src/front/**/*.{ts,tsx}'],
-			important:
-				tailwind.important +
-				(file.endsWith('editor.css') ? '-editor' : ''),
 		}),
 		(css) =>
 			css.walkRules((rule) => {

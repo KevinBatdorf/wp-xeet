@@ -1,16 +1,16 @@
-=== Rust Starter ===
+=== WP Xeet ===
 Contributors:      kbat82
-Tags:              block
-Tested up to:      6.2
+Tags:              block, tweet, twitter, x, xeet, embed
+Tested up to:      6.3
 Stable tag:        0.1.0
 License:           GPL-2.0-or-later
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 
-An example block built using Rust and TypeScript
+Embed a Tweet/Xeet without an iframe (and save 500kb page load!)
 
 == Description ==
 
-This is a starter for building Gutenberg Blocks with Rust and TypeScript. You're not limited to Blocks, however.
+The standard Tweet, or Xeet, loads in 500kb of client-side JavaScript. By pre-rendering the embed statically beforehand, you save 500kb of page load.
 
 == Installation ==
 
@@ -19,29 +19,15 @@ This is a starter for building Gutenberg Blocks with Rust and TypeScript. You're
 
 == Frequently Asked Questions ==
 
-= What is Rust? =
+= Self host? =
 
-Rust is a systems program that can compile to WebAssembly and be used in the browser via JavaScript.
-
-= What about foo bar? =
-
-Answer to foo bar dilemma.
+Coming soon, but you can self host the backend API, which requires a basic Node.JS server.
 
 == Screenshots ==
 
-1. This screen shot description corresponds to screenshot-1.(png|jpg|jpeg|gif). Note that the screenshot is taken from
-the /assets directory or the directory that contains the stable readme.txt (tags or trunk). Screenshots in the /assets
-directory take precedence. For example, `/assets/screenshot-1.png` would win over `/tags/4.3/screenshot-1.png`
-(or jpg, jpeg, gif).
-2. This is the second screen shot
+1. Screenshot 1
 
 == Changelog ==
 
 = 0.1.0 =
 * Release
-
-== Arbitrary section ==
-
-You may provide arbitrary sections, in the same format as the ones above. This may be of use for extremely complicated
-plugins where more information needs to be conveyed that doesn't fit into the categories of "description" or
-"installation." Arbitrary sections will be shown below the built-in sections outlined above.
