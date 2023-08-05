@@ -39,16 +39,20 @@
 		"fast-glob": "^3.3.1",
 		"glob": "^10.3.3",
 		"postcss-import": "^15.1.0",
+		"postcss-safe-important": "^1.2.1",
 		"prettier": "^3.0.1",
 		"replace-in-file": "^7.0.1",
 		"tailwindcss": "^3.3.3",
-		"typescript": "^5.1.6"
+		"typescript": "^5.1.6",
+		"webpack-virtual-modules": "^0.5.0"
 	},
 	"dependencies": {
 		"@wordpress/block-editor": "^12.6.0",
 		"@wordpress/blocks": "^12.15.0",
 		"@wordpress/element": "^5.15.0",
 		"@wordpress/i18n": "^4.38.0",
+		"copy-to-clipboard": "^3.3.3",
+		"date-fns": "^2.30.0",
 		"react-tweet": "^3.0.4"
 	}
 }

@@ -16,4 +16,5 @@
 add_action('init', function () {
     register_block_type(__DIR__ . '/build');
     wp_set_script_translations('kevinbatdorf/wp-xeet', 'wp-xeet');
+	wp_add_inline_style('kevinbatdorf-wp-xeet-style', file_get_contents(__DIR__ . '/build/xeet.css'));
 });

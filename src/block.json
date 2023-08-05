@@ -5,15 +5,16 @@
 	"version": "0.1.0",
 	"title": "WP Xeet",
 	"category": "embed",
-	"description": "Embed a Tweet/Xeet without an iframe (and save 500kb page load!)",
+	"description": "Embed a Tweet/Xeet without an iframe (and save 500kb page load)",
 	"attributes": {
-		"tweetId": {
-			"type": "string",
-			"source": "text"
+		"xeetId": {
+			"type": "string"
+		},
+		"xeetData": {
+			"type": "object"
 		},
 		"theme": {
-			"type": "string",
-			"source": "text"
+			"type": "string"
 		}
 	},
 	"supports": {
@@ -22,5 +23,6 @@
 	"textdomain": "wp-xeet",
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",
-	"style": "file:./style-index.css"
+	"style": "file:./style-index.css",
+	"viewScript": "file:./front/front.js"
 }

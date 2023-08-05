@@ -1,5 +1,9 @@
 name: Build production zip file
-on: push
+on:
+  push:
+  workflow_dispatch:
+  schedule:
+      - cron: '0 8 * * *'
 jobs:
     build:
         name: Build zip file
