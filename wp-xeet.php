@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name:       WP Xeet
- * Description:       An example block built using Rust and TypeScript
+ * Description:       Embed a Tweet/Xeet without an iframe
  * Requires at least: 5.8
  * Requires PHP:      7.0
  * Version:           0.1.0
