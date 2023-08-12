@@ -29,4 +29,4 @@ https://github.com/KevinBatdorf/wp-xeet/actions/workflows/build-production-zip.y
 
 ### Screenshot
 
-![alt text](.wordpress-org/screenshot-1.png 'Example')
+![alt text](.wordpress-org/screenshot-1.gif 'Example')
