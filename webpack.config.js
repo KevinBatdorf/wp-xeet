@@ -1,5 +1,17 @@
+const fs = require('fs');
+const path = require('path');
 const defaultConfig = require('@wordpress/scripts/config/webpack.config');
 const VirtualModulesPlugin = require('webpack-virtual-modules');
+
+const directoryPath = path.resolve(__dirname, './src/front/vercel');
+const tsxFiles = fs
+	.readdirSync(directoryPath)
+	.filter((file) => file.endsWith('.tsx'));
+
+let importStatementsString = '';
+tsxFiles.forEach((file) => {
+	importStatementsString += `import '../src/front/vercel/${file}';\n`;
+});
 
 module.exports = {
 	...defaultConfig,
@@ -13,8 +25,7 @@ module.exports = {
 			'virtual/xeet.tsx': `
 				import ReactDOM from 'react-dom';
 				import { Tweet } from 'react-tweet';
-				import '../src/front/vercel/TweetInfo.tsx';
-				import '../src/front/vercel/TweetActions.tsx';
+				${importStatementsString}
 				ReactDOM.render(<Tweet />, document.getElementById('root'));
 				`,
 		}),

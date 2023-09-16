@@ -1,8 +1,9 @@
 import copy from 'copy-to-clipboard';
 
-const buttonClass = '[data-xeet-url-to-copy]:not(.xeet-copy-added)';
+const xeet = '.wp-xeet';
+const copyUrlButtonClass = '[data-xeet-url-to-copy]:not(.xeet-copy-added)';
 const handleCopyButton = () => {
-	document.querySelectorAll(buttonClass).forEach((el) => {
+	document.querySelectorAll(copyUrlButtonClass).forEach((el) => {
 		el.classList.add('xeet-copy-added');
 		el.addEventListener('click', (e) => {
 			e.preventDefault();
@@ -33,8 +34,70 @@ const handleCopyButton = () => {
 		});
 	});
 };
+const handlePlayButton = () => {
+	const xeetPlay = document.querySelectorAll(
+		`${xeet} .wp-xeet-video-button:not(.xeet-play-added)`,
+	);
+	const onPlay = (e) => {
+		e.preventDefault();
+		const video = e.target;
+		video
+			.closest('.wp-xeet-video-container')
+			.classList.add('xeet-is-playing');
+		video.controls = true;
+		video.addEventListener('pause', onPause);
+		video.addEventListener('ended', onEnded);
+		// Update "watch on" button text
+		const wo = '[data-continue-watching-text]';
+		const watchOn = video
+			.closest('.wp-xeet-video-container')
+			.querySelector(wo);
+		if (watchOn) {
+			watchOn.textContent = watchOn.dataset.continueWatchingText;
+		}
+		video
+			.closest('.wp-xeet-video-container')
+			.classList.remove('xeet-is-finished');
+	};
+	const onPause = (e) => {
+		console.log('pause');
+		e.preventDefault();
+		const video = e.target;
+		video
+			.closest('.wp-xeet-video-container')
+			.classList.remove('xeet-is-playing');
+		video.removeEventListener('pause', onPause);
+	};
+	const onEnded = (e) => {
+		console.log('ended');
+		e.preventDefault();
+		const video = e.target;
+		video
+			.closest('.wp-xeet-video-container')
+			.classList.add('xeet-is-finished');
+		video.removeEventListener('ended', onEnded);
+	};
+	xeetPlay.forEach((el) => {
+		el.classList.add('xeet-play-added');
+		el.addEventListener('click', (e) => {
+			e.preventDefault();
+			const video = el
+				.closest('.wp-xeet-video-container')
+				.querySelector('video');
 
-const init = () => handleCopyButton();
+			el.remove();
+			video.play();
+			video.focus();
+			video.addEventListener('play', onPlay);
+		});
+	});
+	console.log(xeetPlay);
+};
+
+const init = () => {
+	handleCopyButton();
+	handlePlayButton();
+};
 // Functions are idempotent, so we can run them on load, DOMContentLoaded, et al.
 init();
 // Useful for when the DOM is modified or loaded in late
