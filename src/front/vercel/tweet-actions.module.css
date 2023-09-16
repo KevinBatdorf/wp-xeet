@@ -8,32 +8,32 @@
 	overflow-wrap: break-word;
 	white-space: nowrap;
 	text-overflow: ellipsis;
-  }
+}
 
-  .like,
-  .reply,
-  .copy {
+.like,
+.reply,
+.copy {
 	text-decoration: none;
 	color: inherit;
 	display: flex;
 	align-items: center;
 	margin-right: 1.25rem;
-  }
-  .like:hover,
-  .reply:hover,
-  .copy:hover {
+}
+.like:hover,
+.reply:hover,
+.copy:hover {
 	background-color: rgba(0, 0, 0, 0);
-  }
-  .like:hover > .likeIconWrapper {
+}
+.like:hover > .likeIconWrapper {
 	background-color: var(--tweet-color-red-primary-hover);
-  }
-  .like:hover > .likeCount {
+}
+.like:hover > .likeCount {
 	color: var(--tweet-color-red-primary);
 	text-decoration-line: underline;
-  }
-  .likeIconWrapper,
-  .replyIconWrapper,
-  .copyIconWrapper {
+}
+.likeIconWrapper,
+.replyIconWrapper,
+.copyIconWrapper {
 	width: var(--tweet-actions-icon-wrapper-size);
 	height: var(--tweet-actions-icon-wrapper-size);
 	display: flex;
@@ -41,50 +41,50 @@
 	align-items: center;
 	margin-left: -0.25rem;
 	border-radius: 9999px;
-  }
-  .likeIcon,
-  .replyIcon,
-  .copyIcon {
+}
+.likeIcon,
+.replyIcon,
+.copyIcon {
 	height: var(--tweet-actions-icon-size);
 	fill: currentColor;
 	user-select: none;
-  }
-  .likeIcon {
+}
+.likeIcon {
 	color: var(--tweet-color-red-primary);
-  }
-  .likeCount,
-  .replyText,
-  .copyText {
+}
+.likeCount,
+.replyText,
+.copyText {
 	font-size: var(--tweet-actions-font-size);
 	font-weight: var(--tweet-actions-font-weight);
 	line-height: var(--tweet-actions-line-height);
 	margin-left: 0.25rem;
-  }
+}
 
-  .reply:hover > .replyIconWrapper {
+.reply:hover > .replyIconWrapper {
 	background-color: var(--tweet-color-blue-secondary-hover);
-  }
-  .reply:hover > .replyText {
+}
+.reply:hover > .replyText {
 	color: var(--tweet-color-blue-secondary);
 	text-decoration-line: underline;
-  }
-  .replyIcon {
+}
+.replyIcon {
 	color: var(--tweet-color-blue-primary);
-  }
+}
 
-  .copy {
+.copy {
 	font: inherit;
 	background: none;
 	border: none;
 	cursor: pointer;
-  }
-  .copy:hover > .copyIconWrapper {
+}
+.copy:hover > .copyIconWrapper {
 	background-color: var(--tweet-color-green-primary-hover);
-  }
-  .copy:hover .copyIcon {
+}
+.copy:hover .copyIcon {
 	color: var(--tweet-color-green-primary);
-  }
-  .copy:hover > .copyText {
+}
+.copy:hover > .copyText {
 	color: var(--tweet-color-green-primary);
 	text-decoration-line: underline;
-  }
+}

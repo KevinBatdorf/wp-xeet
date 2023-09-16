@@ -32,7 +32,7 @@ registerBlockType<Attributes>('kevinbatdorf/wp-xeet', {
 					setAttributes={setAttributes}
 				/>
 				<div
-					{...blockProps({ className: 'wp-xeet-editor' })}
+					{...blockProps({ className: 'wp-xeet-editor wp-xeet' })}
 					data-theme={theme}>
 					{xeetData ? null : (
 						<NoTweet
