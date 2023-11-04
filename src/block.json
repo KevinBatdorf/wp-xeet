@@ -1,7 +1,7 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 2,
-	"name": "kevinbatdorf/wp-xeet",
+	"name": "kevinbatdorf/xeet-wp",
 	"version": "0.1.0",
 	"title": "Xeet WP",
 	"category": "embed",

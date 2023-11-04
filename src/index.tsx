@@ -14,7 +14,7 @@ export type Attributes = {
 	theme?: 'light' | 'dark';
 };
 
-registerBlockType<Attributes>('kevinbatdorf/wp-xeet', {
+registerBlockType<Attributes>('kevinbatdorf/xeet-wp', {
 	...blockConfig,
 	icon: xIcon,
 	attributes: {
