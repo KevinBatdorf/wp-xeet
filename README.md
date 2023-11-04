@@ -19,7 +19,7 @@ Embed a Xeet (or Tweet) in your WordPress post
 - Built off of Vercel's React Tweet library ([announcement post](https://vercel.com/blog/introducing-react-tweet))
 
 🧚 Hey! Listen!
-> "Xeet" is not an official replacement word for a "Tweet", but it's a fun word nonetheless. I may remove "Xeet" from the UI in the future, but will keep it as this plugin name, and more importantly as the text-domain and main plugin file name.
+> "Xeet" is not an official replacement word for a "Tweet", but it's a fun word nonetheless. X.com isn't use this in their apps language, so it's unaffiliated (where as previously "Tweet" was an issue).
 
 ### WordPress.org plugin repo
 
