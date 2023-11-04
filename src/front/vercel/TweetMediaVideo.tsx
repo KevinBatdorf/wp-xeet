@@ -41,7 +41,7 @@ export const TweetMediaVideo = ({ tweet, media }: Props) => {
 			<button
 				type="button"
 				className={s.videoButton + ' ' + 'xeet-video-button'}
-				aria-label={__('View video on Twitter', 'xeet')}
+				aria-label={__('View video on Twitter', 'xeet-wp')}
 				onClick={() => undefined}>
 				<svg
 					viewBox="0 0 24 24"
@@ -60,10 +60,10 @@ export const TweetMediaVideo = ({ tweet, media }: Props) => {
 					target="_blank"
 					data-continue-watching-text={__(
 						'Continue watching on Twitter',
-						'xeet',
+						'xeet-wp',
 					)}
 					rel="noopener noreferrer">
-					{__('Watch on Twitter', 'xeet')}
+					{__('Watch on Twitter', 'xeet-wp')}
 				</a>
 			</div>
 
@@ -76,7 +76,7 @@ export const TweetMediaVideo = ({ tweet, media }: Props) => {
 				// alow for unlimited loop
 				target="_blank"
 				rel="noopener noreferrer">
-				{__('View replies', 'xeet')}
+				{__('View replies', 'xeet-wp')}
 			</a>
 		</>
 	);
