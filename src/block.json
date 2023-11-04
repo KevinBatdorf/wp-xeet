@@ -1,9 +1,9 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 2,
-	"name": "kevinbatdorf/wp-xeet",
+	"name": "kevinbatdorf/xeet",
 	"version": "0.1.0",
-	"title": "WP Xeet",
+	"title": "Xeet",
 	"category": "embed",
 	"description": "Embed a Tweet/Xeet without an iframe (and save 500kb page load)",
 	"attributes": {
@@ -20,7 +20,7 @@
 	"supports": {
 		"html": false
 	},
-	"textdomain": "wp-xeet",
+	"textdomain": "xeet",
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",
 	"style": "file:./style-index.css",

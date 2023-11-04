@@ -13,7 +13,7 @@ export const TweetInfo = ({ tweet }: { tweet: EnrichedTweet }) => (
 			rel="noopener noreferrer"
 			aria-label={__(
 				'Twitter for Websites, Ads Information and Privacy',
-				'wp-xeet',
+				'xeet',
 			)}>
 			<svg viewBox="0 0 24 24" aria-hidden="true" className={s.infoIcon}>
 				<g>

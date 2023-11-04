@@ -14,7 +14,7 @@ export type Attributes = {
 	theme?: 'light' | 'dark';
 };
 
-registerBlockType<Attributes>('kevinbatdorf/wp-xeet', {
+registerBlockType<Attributes>('kevinbatdorf/xeet', {
 	...blockConfig,
 	icon: xIcon,
 	attributes: {
@@ -22,7 +22,7 @@ registerBlockType<Attributes>('kevinbatdorf/wp-xeet', {
 		xeetData: { type: 'object' },
 		theme: { type: 'string', default: undefined },
 	},
-	title: __('WP Xeet', 'wp-xeet'),
+	title: __('Xeet', 'xeet'),
 	edit: ({ attributes, setAttributes }) => {
 		const { xeetData, theme } = attributes;
 		return (
@@ -32,7 +32,7 @@ registerBlockType<Attributes>('kevinbatdorf/wp-xeet', {
 					setAttributes={setAttributes}
 				/>
 				<div
-					{...blockProps({ className: 'wp-xeet-editor wp-xeet' })}
+					{...blockProps({ className: 'xeet-editor xeet' })}
 					data-theme={theme}>
 					{xeetData ? null : (
 						<NoTweet
@@ -52,7 +52,7 @@ registerBlockType<Attributes>('kevinbatdorf/wp-xeet', {
 		return (
 			<div
 				{...blockProps.save({
-					className: 'wp-xeet',
+					className: 'xeet',
 				})}
 				data-theme={theme}>
 				{xeetData && <Xeet xeet={xeetData} />}

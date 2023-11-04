@@ -72,7 +72,7 @@ export const TweetMedia = ({ tweet, components, quoted }: Props) => {
 								className={
 									s.mediaContainer +
 									' ' +
-									'wp-xeet-video-container'
+									'xeet-video-container'
 								}>
 								<div
 									className={s.skeleton}

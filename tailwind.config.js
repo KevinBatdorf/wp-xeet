@@ -7,7 +7,7 @@ delete colors['blueGray'];
 
 // See postcss.config.js for more parsing options.
 module.exports = {
-	important: '.wp-xeet',
+	important: '.xeet',
 	content: ['./src/**/*.{ts,tsx}'],
 	theme: {
 		screens: {

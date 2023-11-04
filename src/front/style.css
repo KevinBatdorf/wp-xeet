@@ -129,6 +129,6 @@
 .xeet-is-playing .xeet-watch-link {
 	display: none;
 }
-.wp-xeet-video-container:not(.xeet-is-finished) .xeet-view-replies {
+.xeet-video-container:not(.xeet-is-finished) .xeet-view-replies {
 	display: none;
 }
