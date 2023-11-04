@@ -1,6 +1,6 @@
 import copy from 'copy-to-clipboard';
 
-const xeet = '.wp-xeet';
+const xeet = '.xeet';
 const copyUrlButtonClass = '[data-xeet-url-to-copy]:not(.xeet-copy-added)';
 const handleCopyButton = () => {
 	document.querySelectorAll(copyUrlButtonClass).forEach((el) => {
@@ -36,27 +36,25 @@ const handleCopyButton = () => {
 };
 const handlePlayButton = () => {
 	const xeetPlay = document.querySelectorAll(
-		`${xeet} .wp-xeet-video-button:not(.xeet-play-added)`,
+		`${xeet} .xeet-video-button:not(.xeet-play-added)`,
 	);
 	const onPlay = (e) => {
 		e.preventDefault();
 		const video = e.target;
-		video
-			.closest('.wp-xeet-video-container')
-			.classList.add('xeet-is-playing');
+		video.closest('.xeet-video-container').classList.add('xeet-is-playing');
 		video.controls = true;
 		video.addEventListener('pause', onPause);
 		video.addEventListener('ended', onEnded);
 		// Update "watch on" button text
 		const wo = '[data-continue-watching-text]';
 		const watchOn = video
-			.closest('.wp-xeet-video-container')
+			.closest('.xeet-video-container')
 			.querySelector(wo);
 		if (watchOn) {
 			watchOn.textContent = watchOn.dataset.continueWatchingText;
 		}
 		video
-			.closest('.wp-xeet-video-container')
+			.closest('.xeet-video-container')
 			.classList.remove('xeet-is-finished');
 	};
 	const onPause = (e) => {
@@ -64,7 +62,7 @@ const handlePlayButton = () => {
 		e.preventDefault();
 		const video = e.target;
 		video
-			.closest('.wp-xeet-video-container')
+			.closest('.xeet-video-container')
 			.classList.remove('xeet-is-playing');
 		video.removeEventListener('pause', onPause);
 	};
@@ -73,7 +71,7 @@ const handlePlayButton = () => {
 		e.preventDefault();
 		const video = e.target;
 		video
-			.closest('.wp-xeet-video-container')
+			.closest('.xeet-video-container')
 			.classList.add('xeet-is-finished');
 		video.removeEventListener('ended', onEnded);
 	};
@@ -82,7 +80,7 @@ const handlePlayButton = () => {
 		el.addEventListener('click', (e) => {
 			e.preventDefault();
 			const video = el
-				.closest('.wp-xeet-video-container')
+				.closest('.xeet-video-container')
 				.querySelector('video');
 
 			el.remove();

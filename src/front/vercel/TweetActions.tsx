@@ -14,7 +14,7 @@ export const TweetActions = ({ tweet }: { tweet: EnrichedTweet }) => {
 				target="_blank"
 				rel="noopener noreferrer"
 				aria-label={sprintf(
-					__('Like. This Tweet has %s likes', 'wp-xeet'),
+					__('Like. This Tweet has %s likes', 'xeet'),
 					favoriteCount,
 				)}>
 				<div className={s.likeIconWrapper}>
@@ -34,7 +34,7 @@ export const TweetActions = ({ tweet }: { tweet: EnrichedTweet }) => {
 				href={tweet.reply_url}
 				target="_blank"
 				rel="noopener noreferrer"
-				aria-label={__('Reply to this Tweet on Twitter', 'wp-xeet')}>
+				aria-label={__('Reply to this Tweet on Twitter', 'xeet')}>
 				<div className={s.replyIconWrapper}>
 					<svg
 						viewBox="0 0 24 24"

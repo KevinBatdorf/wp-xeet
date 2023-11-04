@@ -27,7 +27,7 @@ jobs:
             - name: Package
               uses: actions/upload-artifact@v3
               with:
-                  name: wp-xeet
+                  name: xeet
                   retention-days: 5
                   path: |
                       ${{ github.workspace }}/

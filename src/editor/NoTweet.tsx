@@ -10,18 +10,18 @@ type NoTweetProps = {
 };
 export const NoTweet = ({ attributes, setAttributes }: NoTweetProps) => {
 	return (
-		<div className="wp-xeet-editor">
+		<div className="xeet-editor">
 			<Placeholder
 				icon={xIcon}
 				label={'Share a Xeet'}
 				instructions={__(
 					'Paste a link to the Xeet URL you want to display on your site.',
-					'wp-xeet',
+					'xeet',
 				)}>
 				<TextControl
 					__nextHasNoMarginBottom
-					label={__('Xeet (or Tweet) ID', 'wp-xeet')}
-					placeholder={__('Enter URL to embed here...', 'wp-xeet')}
+					label={__('Xeet (or Tweet) ID', 'xeet')}
+					placeholder={__('Enter URL to embed here...', 'xeet')}
 					className="w-full"
 					onChange={(maybeId) => {
 						const xeetId = extractTwitterId(maybeId);
