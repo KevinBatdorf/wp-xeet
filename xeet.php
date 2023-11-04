@@ -13,8 +13,10 @@
  * @package           kevinbatdorf
  */
 
+defined('ABSPATH') or die;
+
 add_action('init', function () {
     register_block_type(__DIR__ . '/build');
     wp_set_script_translations('kevinbatdorf/xeet-wp', 'xeet-wp');
-	wp_add_inline_style('kevinbatdorf-xeet-style', file_get_contents(__DIR__ . '/build/xeet.css'));
+	wp_add_inline_style('kevinbatdorf-xeet-wp-style', file_get_contents(__DIR__ . '/build/xeet.css'));
 });
