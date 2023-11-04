@@ -23,7 +23,7 @@ Embed a Xeet (or Tweet) in your WordPress post
 
 ### WordPress.org plugin repo
 
-The queue for new plugins is months now, so I won't be able to submit this fpr review for some time. However, you can safely use it now by downloading it from this URL (click the first job, then find the artifact at the bottom), and when it's approved it will update automatically.
+The queue for new plugins is months now, so I won't be able to submit this for review for some time. However, you can safely use it now by downloading it from this URL (click the first job, then find the artifact at the bottom), and when it's approved it will update automatically.
 
 https://github.com/KevinBatdorf/wp-xeet/actions/workflows/build-production-zip.yml
 
