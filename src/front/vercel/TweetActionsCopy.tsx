@@ -7,7 +7,7 @@ export const TweetActionsCopy = ({ tweet }: { tweet: EnrichedTweet }) => {
 		<button
 			type="button"
 			className={s.copy}
-			aria-label={__('Copy link', 'xeet')}
+			aria-label={__('Copy link', 'xeet-wp')}
 			data-xeet-url-to-copy={tweet.url}>
 			<div className={s.copyIconWrapper}>
 				<svg
@@ -31,10 +31,10 @@ export const TweetActionsCopy = ({ tweet }: { tweet: EnrichedTweet }) => {
 			<span
 				className={s.copyText}
 				data-copy-text={JSON.stringify({
-					copied: __('Copied!', 'xeet'),
-					copyAllText: __('Copy link to Tweet', 'xeet'),
+					copied: __('Copied!', 'xeet-wp'),
+					copyAllText: __('Copy link to Tweet', 'xeet-wp'),
 				})}>
-				{__('Copy link', 'xeet')}
+				{__('Copy link', 'xeet-wp')}
 			</span>
 		</button>
 	);

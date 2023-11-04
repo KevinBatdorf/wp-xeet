@@ -14,7 +14,7 @@ export type Attributes = {
 	theme?: 'light' | 'dark';
 };
 
-registerBlockType<Attributes>('kevinbatdorf/xeet', {
+registerBlockType<Attributes>('kevinbatdorf/xeet-wp', {
 	...blockConfig,
 	icon: xIcon,
 	attributes: {
@@ -22,7 +22,7 @@ registerBlockType<Attributes>('kevinbatdorf/xeet', {
 		xeetData: { type: 'object' },
 		theme: { type: 'string', default: undefined },
 	},
-	title: __('Xeet', 'xeet'),
+	title: __('Xeet', 'xeet-wp'),
 	edit: ({ attributes, setAttributes }) => {
 		const { xeetData, theme } = attributes;
 		return (

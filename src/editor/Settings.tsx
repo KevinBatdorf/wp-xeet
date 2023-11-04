@@ -67,13 +67,16 @@ export const Settings = ({ attributes, setAttributes }: ControlProps) => {
 
 	return (
 		<InspectorControls>
-			<PanelBody initialOpen={false} title={__('Settings', 'xeet')}>
+			<PanelBody initialOpen={false} title={__('Settings', 'xeet-wp')}>
 				<BaseControl id="xeet-settings">
 					<div className="xeet-editor">
 						<TextControl
-							label={__('Xeet ID', 'xeet')}
+							label={__('Xeet ID', 'xeet-wp')}
 							className={error ? 'text-red-500' : undefined}
-							help={__('Paste a Xeet/Tweet URL or ID.', 'xeet')}
+							help={__(
+								'Paste a Xeet/Tweet URL or ID.',
+								'xeet-wp',
+							)}
 							value={attributes.xeetId ?? ''}
 							onChange={(maybeId) => {
 								setAttributes({ xeetData: undefined });
@@ -84,38 +87,40 @@ export const Settings = ({ attributes, setAttributes }: ControlProps) => {
 						/>
 						{isError && (
 							<p className="text-red-500">
-								{__('Error loading tweet.', 'xeet')}
+								{__('Error loading tweet.', 'xeet-wp')}
 							</p>
 						)}
 						{showUpdateButton && (
 							<>
-								<p>{__('Data change detected.', 'xeet')}</p>
+								<p>{__('Data change detected.', 'xeet-wp')}</p>
 								<Button
 									variant="secondary"
 									onClick={() => {
 										const xeetData = enrichTweet(data);
 										updateXeet(xeetData);
 									}}>
-									{__('Update data', 'xeet')}
+									{__('Update data', 'xeet-wp')}
 								</Button>
 							</>
 						)}
 					</div>
 				</BaseControl>
 			</PanelBody>
-			<PanelBody title={__('Theme Override', 'xeet')} initialOpen={false}>
+			<PanelBody
+				title={__('Theme Override', 'xeet-wp')}
+				initialOpen={false}>
 				<BaseControl id="xeet-theme">
 					<div className="xeet-editor">
 						<SelectControl
-							label={__('Theme', 'xeet')}
+							label={__('Theme', 'xeet-wp')}
 							value={attributes.theme}
 							options={[
-								{ label: __('Auto', 'xeet'), value: 'auto' },
+								{ label: __('Auto', 'xeet-wp'), value: 'auto' },
 								{
-									label: __('Light', 'xeet'),
+									label: __('Light', 'xeet-wp'),
 									value: 'light',
 								},
-								{ label: __('Dark', 'xeet'), value: 'dark' },
+								{ label: __('Dark', 'xeet-wp'), value: 'dark' },
 							]}
 							onChange={(theme) => {
 								if (theme === 'auto') {
@@ -129,7 +134,7 @@ export const Settings = ({ attributes, setAttributes }: ControlProps) => {
 						<p className="bg-gray-200 p-3">
 							{__(
 								"By default, the Xeet block will detect the user's system preferences and apply a light or dark theme. See plugin readme for more info on how to override this.",
-								'xeet',
+								'xeet-wp',
 							)}
 						</p>
 					</div>

@@ -1,4 +1,4 @@
-=== Xeet ===
+=== Xeet WP ===
 Contributors:      kbat82
 Tags:              block, tweet, twitter, x, xeet, embed
 Tested up to:      6.3

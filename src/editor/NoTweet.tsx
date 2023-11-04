@@ -16,12 +16,12 @@ export const NoTweet = ({ attributes, setAttributes }: NoTweetProps) => {
 				label={'Share a Xeet'}
 				instructions={__(
 					'Paste a link to the Xeet URL you want to display on your site.',
-					'xeet',
+					'xeet-wp',
 				)}>
 				<TextControl
 					__nextHasNoMarginBottom
-					label={__('Xeet (or Tweet) ID', 'xeet')}
-					placeholder={__('Enter URL to embed here...', 'xeet')}
+					label={__('Xeet (or Tweet) ID', 'xeet-wp')}
+					placeholder={__('Enter URL to embed here...', 'xeet-wp')}
 					className="w-full"
 					onChange={(maybeId) => {
 						const xeetId = extractTwitterId(maybeId);

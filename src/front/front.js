@@ -89,7 +89,6 @@ const handlePlayButton = () => {
 			video.addEventListener('play', onPlay);
 		});
 	});
-	console.log(xeetPlay);
 };
 
 const init = () => {
