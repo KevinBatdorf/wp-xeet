@@ -134,7 +134,7 @@ export const Settings = ({ attributes, setAttributes }: ControlProps) => {
 						<p className="bg-gray-200 p-3">
 							{__(
 								"By default, the Xeet block will detect the user's system preferences and apply a light or dark theme. See plugin readme for more info on how to override this.",
-								'xeet',
+								'xeet-wp',
 							)}
 						</p>
 					</div>
