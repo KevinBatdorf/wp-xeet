@@ -1,16 +1,18 @@
-=== Xeet WP ===
+=== Static Xeets for Twitter - Embed x.com Tweets without an iframe ===
 Contributors:      kbat82
 Tags:              block, tweet, twitter, x, xeet, embed
 Tested up to:      6.3
-Stable tag:        0.1.0
+Stable tag:        1.0.0
 License:           GPL-2.0-or-later
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 
-Embed a Tweet/Xeet without an iframe (and save 500kb page load!)
+Say goodbye to bulky iFrames! Embed a Tweet/Xeet and save 500kb page load!
 
 == Description ==
 
 The standard Tweet, or Xeet, loads in 500kb of client-side JavaScript. By pre-rendering the embed statically beforehand, you save 500kb of page load.
+
+https://github.com/KevinBatdorf/wp-xeet
 
 = Features =
 * Embed a Tweet/Xeet without an iframe
@@ -29,9 +31,13 @@ The Tweets are parsed on a server hosted on [Vercel](https://vercel.com/). Using
 
 == Frequently Asked Questions ==
 
+= What is a Xeet? =
+
+I'm not entirely sure, but calling it a "Post" seems too generic, and calling it a "Tweet" is technically inaccurate. So, I'm calling it a "Xeet". This may change in the fuure.
+
 = Self host the API? =
 
-Coming soon, but you will be able to self host the backend API, which requires a basic Node.JS server.
+Coming soon, but you will be able to self host the backend API, which requires a basic Node.JS server. Open an issue on GitHub if you are interested in this.
 
 = Persist Dark mode? =
 
@@ -43,5 +49,5 @@ If you add `data-theme="light"` (or 'dark') anywhere above the block (for exampl
 
 == Changelog ==
 
-= 0.1.0 =
+= 1.0.0 =
 * Release

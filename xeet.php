@@ -1,10 +1,10 @@
 <?php
 /**
- * Plugin Name:       Xeet WP
+ * Plugin Name:       Static Xeets for Twitter
  * Description:       Embed a Tweet/Xeet without an iframe
  * Requires at least: 5.8
  * Requires PHP:      7.0
- * Version:           0.1.0
+ * Version:           1.0.0
  * Author:            Kevin Batdorf
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html

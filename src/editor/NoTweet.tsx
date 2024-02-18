@@ -10,7 +10,7 @@ type NoTweetProps = {
 };
 export const NoTweet = ({ attributes, setAttributes }: NoTweetProps) => {
 	return (
-		<div className="xeet-editor">
+		<div className="xeet-wp-editor">
 			<Placeholder
 				icon={xIcon}
 				label={'Share a Xeet'}
