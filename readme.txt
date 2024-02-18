@@ -12,7 +12,7 @@ Say goodbye to bulky iFrames! Embed a Tweet/Xeet and save 500kb page load!
 
 The standard Tweet, or Xeet, loads in 500kb of client-side JavaScript. By pre-rendering the embed statically beforehand, you save 500kb of page load.
 
-https://github.com/KevinBatdorf/wp-xeet
+[https://github.com/KevinBatdorf/wp-xeet](https://github.com/KevinBatdorf/wp-xeet)
 
 = Features =
 * Embed a Tweet/Xeet without an iframe
