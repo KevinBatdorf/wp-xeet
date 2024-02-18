@@ -1,4 +1,4 @@
-:where(.xeet-editor) {
+:where(.xeet-wp-editor) {
 	--tw-ring-inset: var(--tw-empty, /*!*/ /*!*/);
 	--tw-ring-offset-width: 0px;
 	--tw-ring-offset-color: transparent;
@@ -11,9 +11,9 @@
 	--tw-scale-x: 1;
 	--tw-scale-y: 1;
 }
-:where(.xeet-editor) *,
-:where(.xeet-editor) *:after,
-:where(.xeet-editor) *:before {
+:where(.xeet-wp-editor) *,
+:where(.xeet-wp-editor) *:after,
+:where(.xeet-wp-editor) *:before {
 	/* no !important */
 	box-sizing: border-box;
 	border: 0 solid #e5e7eb;

@@ -1,6 +1,6 @@
 import copy from 'copy-to-clipboard';
 
-const xeet = '.xeet';
+const xeet = '.xeet-wp';
 const copyUrlButtonClass = '[data-xeet-url-to-copy]:not(.xeet-copy-added)';
 const handleCopyButton = () => {
 	document.querySelectorAll(copyUrlButtonClass).forEach((el) => {
@@ -58,7 +58,6 @@ const handlePlayButton = () => {
 			.classList.remove('xeet-is-finished');
 	};
 	const onPause = (e) => {
-		console.log('pause');
 		e.preventDefault();
 		const video = e.target;
 		video
@@ -67,7 +66,6 @@ const handlePlayButton = () => {
 		video.removeEventListener('pause', onPause);
 	};
 	const onEnded = (e) => {
-		console.log('ended');
 		e.preventDefault();
 		const video = e.target;
 		video

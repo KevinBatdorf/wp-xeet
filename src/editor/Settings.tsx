@@ -69,7 +69,7 @@ export const Settings = ({ attributes, setAttributes }: ControlProps) => {
 		<InspectorControls>
 			<PanelBody initialOpen={false} title={__('Settings', 'xeet-wp')}>
 				<BaseControl id="xeet-settings">
-					<div className="xeet-editor">
+					<div className="xeet-wp-editor">
 						<TextControl
 							label={__('Xeet ID', 'xeet-wp')}
 							className={error ? 'text-red-500' : undefined}
@@ -110,7 +110,7 @@ export const Settings = ({ attributes, setAttributes }: ControlProps) => {
 				title={__('Theme Override', 'xeet-wp')}
 				initialOpen={false}>
 				<BaseControl id="xeet-theme">
-					<div className="xeet-editor">
+					<div className="xeet-wp-editor">
 						<SelectControl
 							label={__('Theme', 'xeet-wp')}
 							value={attributes.theme}
