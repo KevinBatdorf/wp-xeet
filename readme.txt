@@ -22,7 +22,9 @@ The standard Tweet, or Xeet, loads in 500kb of client-side JavaScript. By pre-re
 * Dark/light auto mode
 
 = Vercel =
-The Tweets are parsed on a server hosted on [Vercel](https://vercel.com/). Using this service, and thus connecting to their servers, you agree to their [privacy policy](https://vercel.com/legal/privacy-policy) and [terms](https://vercel.com/legal/terms). *NOTE:* Your frontend does not rely on any api calls, and if the Vercel api shuts down tomorrow, your site will not be affected in any way.
+The Tweets are parsed on a server hosted on [Vercel](https://vercel.com/). Using this service, and thus connecting to their servers, you agree to their [privacy policy](https://vercel.com/legal/privacy-policy) and [terms](https://vercel.com/legal/terms).
+
+*NOTE:* Your frontend does not rely on any api calls, and if the Vercel api shuts down tomorrow, your site will not be affected in any way.
 
 == Installation ==
 
