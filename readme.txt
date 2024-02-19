@@ -6,11 +6,11 @@ Stable tag:        1.0.0
 License:           GPL-2.0-or-later
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 
-Say goodbye to bulky iFrames! Embed a static Tweet/Xeet and save 500kb page load!
+Embed x.com Tweets without an iframe. No more cookies and save 500kb from your page load!
 
 == Description ==
 
-The standard Tweet, or Xeet, loads in 500kb of client-side JavaScript. By pre-rendering the embed statically beforehand, you save 500kb of page load.
+The standard Tweet, or Xeet, loads in 500kb of front end JavaScript, tracking cookies, and lots of noise. This plugin avoids all of that by pre-rendering the entire Tweet statically. Say goodbye to bulky Tweets!
 
 [https://github.com/KevinBatdorf/wp-xeet](https://github.com/KevinBatdorf/wp-xeet)
 
