@@ -3,9 +3,9 @@
 	"apiVersion": 2,
 	"name": "kevinbatdorf/xeet-wp",
 	"version": "0.1.0",
-	"title": "Xeet WP",
+	"title": "Static Xeets for Twitter",
 	"category": "embed",
-	"description": "Embed a Tweet/Xeet without an iframe (and save 500kb page load)",
+	"description": "Embed x.com Tweets without an iframe",
 	"attributes": {
 		"xeetId": {
 			"type": "string"
