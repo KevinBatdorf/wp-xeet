@@ -1,8 +1,8 @@
 === Static Xeets for Twitter - Embed x.com Tweets without an iframe ===
 Contributors:      kbat82
 Tags:              block, tweet, twitter, x, xeet, embed
-Tested up to:      6.3
-Stable tag:        1.0.0
+Tested up to:      6.5
+Stable tag:        1.0.1
 License:           GPL-2.0-or-later
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -51,5 +51,5 @@ If you add `data-theme="light"` (or 'dark') anywhere above the block (for exampl
 
 == Changelog ==
 
-= 1.0.0 =
-* Release
+= 1.0.1 - 2024-02-19 =
+- Updates the block.json file with a better title
