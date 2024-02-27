@@ -1,6 +1,6 @@
-=== Static Xeets for Twitter - Embed x.com Tweets without an iframe ===
+=== Static Posts for Twitter - Embed x.com Tweets without an iframe ===
 Contributors:      kbat82
-Tags:              block, tweet, twitter, x, xeet, embed
+Tags:              block, tweet, twitter, x.com, xeet, embed
 Tested up to:      6.5
 Stable tag:        1.0.1
 License:           GPL-2.0-or-later
@@ -10,12 +10,12 @@ Embed x.com Tweets without an iframe. No more cookies and save 500kb from your p
 
 == Description ==
 
-The standard Tweet, or Xeet, loads in 500kb of front end JavaScript, tracking cookies, and lots of noise. This plugin avoids all of that by pre-rendering the entire Tweet statically. Say goodbye to bulky Tweets!
+The standard Tweet, or Post (or Xeet?), loads in 500kb of front end JavaScript, tracking cookies, and lots of noise. This plugin avoids all of that by pre-rendering the entire Tweet statically. Say goodbye to bulky Tweets!
 
 [https://github.com/KevinBatdorf/wp-xeet](https://github.com/KevinBatdorf/wp-xeet)
 
 = Features =
-* Embed a Tweet/Xeet without an iframe
+* Embed a Tweet/Post/Xeet without an iframe
 * Save 500kb of page load
 * No Twitter/X cookies, tracking, JavaScript, etc
 * Static - Twitter/X changes won't affect your site
@@ -32,10 +32,6 @@ The Tweets are parsed on a server hosted on [Vercel](https://vercel.com/). Using
 
 
 == Frequently Asked Questions ==
-
-= What is a Xeet? =
-
-I'm not entirely sure, but calling it a "Post" seems too generic, and calling it a "Tweet" is technically inaccurate. So, I'm calling it a "Xeet". This may change in the fuure.
 
 = Self host the API? =
 
