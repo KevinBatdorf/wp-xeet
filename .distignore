@@ -10,6 +10,7 @@
 /Cargo.lock
 /playwright-report
 /test-results
+/artifacts
 /playwright.config.ts
 /biome.json
 /tsconfig.tsbuildinfo
