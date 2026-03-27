@@ -1,4 +1,5 @@
 import {
+	type EnrichedTweet,
 	// TweetActions,
 	TweetBody,
 	TweetContainer,
@@ -7,11 +8,10 @@ import {
 	// TweetInfo,
 	// TweetMedia,
 	TweetReplies,
-	EnrichedTweet,
 } from 'react-tweet';
 import './style.css';
-import { TweetInfo } from './vercel/TweetInfo';
 import { TweetActions } from './vercel/TweetActions';
+import { TweetInfo } from './vercel/TweetInfo';
 import { TweetMedia } from './vercel/TweetMedia';
 
 export const Xeet = ({ xeet }: { xeet: EnrichedTweet }) => {

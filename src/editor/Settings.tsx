@@ -1,17 +1,17 @@
 import { InspectorControls } from '@wordpress/block-editor';
 import {
-	PanelBody,
 	BaseControl,
-	TextControl,
 	Button,
+	PanelBody,
 	SelectControl,
+	TextControl,
 } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 import type { Attributes } from '..';
 import './editor.css';
+import { useCallback, useEffect, useState } from '@wordpress/element';
 import type { EnrichedTweet } from 'react-tweet';
 import { enrichTweet, useTweet } from 'react-tweet';
-import { useCallback, useEffect, useState } from '@wordpress/element';
 import { extractTwitterId } from '../util';
 
 interface ControlProps {
@@ -73,10 +73,7 @@ export const Settings = ({ attributes, setAttributes }: ControlProps) => {
 						<TextControl
 							label={__('Xeet ID', 'xeet-wp')}
 							className={error ? 'text-red-500' : undefined}
-							help={__(
-								'Paste a Xeet/Tweet URL or ID.',
-								'xeet-wp',
-							)}
+							help={__('Paste a Xeet/Tweet URL or ID.', 'xeet-wp')}
 							value={attributes.xeetId ?? ''}
 							onChange={(maybeId) => {
 								setAttributes({ xeetData: undefined });
@@ -98,7 +95,8 @@ export const Settings = ({ attributes, setAttributes }: ControlProps) => {
 									onClick={() => {
 										const xeetData = enrichTweet(data);
 										updateXeet(xeetData);
-									}}>
+									}}
+								>
 									{__('Update data', 'xeet-wp')}
 								</Button>
 							</>
@@ -106,9 +104,7 @@ export const Settings = ({ attributes, setAttributes }: ControlProps) => {
 					</div>
 				</BaseControl>
 			</PanelBody>
-			<PanelBody
-				title={__('Theme Override', 'xeet-wp')}
-				initialOpen={false}>
+			<PanelBody title={__('Theme Override', 'xeet-wp')} initialOpen={false}>
 				<BaseControl id="xeet-theme">
 					<div className="xeet-wp-editor">
 						<SelectControl

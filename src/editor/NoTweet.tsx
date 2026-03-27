@@ -1,7 +1,7 @@
 import { Placeholder, TextControl } from '@wordpress/components';
-import { xIcon } from '../icons';
-import { Attributes } from '..';
 import { __ } from '@wordpress/i18n';
+import type { Attributes } from '..';
+import { xIcon } from '../icons';
 import { extractTwitterId } from '../util';
 
 type NoTweetProps = {
@@ -17,7 +17,8 @@ export const NoTweet = ({ attributes, setAttributes }: NoTweetProps) => {
 				instructions={__(
 					'Paste a link to the Xeet URL you want to display on your site.',
 					'xeet-wp',
-				)}>
+				)}
+			>
 				<TextControl
 					__nextHasNoMarginBottom
 					label={__('Xeet (or Tweet) ID', 'xeet-wp')}

@@ -1,4 +1,4 @@
-import { EnrichedTweet } from 'react-tweet';
+import type { EnrichedTweet } from 'react-tweet';
 import s from './tweet-info-created-at.module.css';
 
 export const TweetInfoCreatedAt = ({ tweet }: { tweet: EnrichedTweet }) => {
@@ -22,7 +22,8 @@ export const TweetInfoCreatedAt = ({ tweet }: { tweet: EnrichedTweet }) => {
 			href={tweet.url}
 			target="_blank"
 			rel="noopener noreferrer"
-			aria-label={formattedDate}>
+			aria-label={formattedDate}
+		>
 			<time dateTime={createdAt.toISOString()}>{formattedDate}</time>
 		</a>
 	);

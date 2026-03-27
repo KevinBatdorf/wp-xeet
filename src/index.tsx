@@ -1,11 +1,11 @@
 import { useBlockProps as blockProps } from '@wordpress/block-editor';
 import { registerBlockType } from '@wordpress/blocks';
 import { __ } from '@wordpress/i18n';
-import blockConfig from './block.json';
-import { Settings } from './editor/Settings';
 import type { EnrichedTweet } from 'react-tweet';
-import { Xeet } from './front/Xeet';
+import blockConfig from './block.json';
 import { NoTweet } from './editor/NoTweet';
+import { Settings } from './editor/Settings';
+import { Xeet } from './front/Xeet';
 import { xIcon } from './icons';
 
 export type Attributes = {
@@ -27,18 +27,13 @@ registerBlockType<Attributes>('kevinbatdorf/xeet-wp', {
 		const { xeetData, theme } = attributes;
 		return (
 			<>
-				<Settings
-					attributes={attributes}
-					setAttributes={setAttributes}
-				/>
+				<Settings attributes={attributes} setAttributes={setAttributes} />
 				<div
 					{...blockProps({ className: 'xeet-wp-editor xeet-wp' })}
-					data-theme={theme}>
+					data-theme={theme}
+				>
 					{xeetData ? null : (
-						<NoTweet
-							attributes={attributes}
-							setAttributes={setAttributes}
-						/>
+						<NoTweet attributes={attributes} setAttributes={setAttributes} />
 					)}
 					<div className="pointer-events-none">
 						{xeetData && <Xeet xeet={xeetData} />}
@@ -54,7 +49,8 @@ registerBlockType<Attributes>('kevinbatdorf/xeet-wp', {
 				{...blockProps.save({
 					className: 'xeet-wp',
 				})}
-				data-theme={theme}>
+				data-theme={theme}
+			>
 				{xeetData && <Xeet xeet={xeetData} />}
 			</div>
 		);
