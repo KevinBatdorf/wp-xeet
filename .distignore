@@ -4,6 +4,12 @@
 /node_modules
 /assets
 /scripts
+/tests
 /package-lock.json
 /target
 /Cargo.lock
+/playwright-report
+/test-results
+/playwright.config.ts
+/biome.json
+/tsconfig.tsbuildinfo

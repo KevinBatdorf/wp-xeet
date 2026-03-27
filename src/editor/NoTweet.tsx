@@ -1,7 +1,8 @@
 import { Placeholder, TextControl } from '@wordpress/components';
-import { xIcon } from '../icons';
-import { Attributes } from '..';
+import { useState } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
+import type { Attributes } from '..';
+import { xIcon } from '../icons';
 import { extractTwitterId } from '../util';
 
 type NoTweetProps = {
@@ -9,6 +10,9 @@ type NoTweetProps = {
 	setAttributes: (attributes: Attributes) => void;
 };
 export const NoTweet = ({ attributes, setAttributes }: NoTweetProps) => {
+	const [inputValue, setInputValue] = useState(attributes.xeetId || '');
+	const [error, setError] = useState('');
+
 	return (
 		<div className="xeet-wp-editor">
 			<Placeholder
@@ -17,18 +21,36 @@ export const NoTweet = ({ attributes, setAttributes }: NoTweetProps) => {
 				instructions={__(
 					'Paste a link to the Xeet URL you want to display on your site.',
 					'xeet-wp',
-				)}>
+				)}
+			>
 				<TextControl
 					__nextHasNoMarginBottom
 					label={__('Xeet (or Tweet) ID', 'xeet-wp')}
 					placeholder={__('Enter URL to embed here...', 'xeet-wp')}
 					className="w-full"
-					onChange={(maybeId) => {
-						const xeetId = extractTwitterId(maybeId);
-						setAttributes({ xeetId });
+					onChange={(value) => {
+						setInputValue(value);
+						setError('');
+						const xeetId = extractTwitterId(value);
+						if (xeetId) {
+							setAttributes({ xeetId });
+						}
 					}}
-					value={attributes.xeetId || ''}
+					onKeyDown={(e: React.KeyboardEvent) => {
+						if (e.key === 'Enter') {
+							const xeetId = extractTwitterId(inputValue);
+							if (xeetId) {
+								setAttributes({ xeetId });
+							} else if (inputValue.trim()) {
+								setError(
+									__('Could not find a valid Xeet ID.', 'xeet-wp'),
+								);
+							}
+						}
+					}}
+					value={inputValue}
 				/>
+				{error && <p className="text-red-500">{error}</p>}
 			</Placeholder>
 		</div>
 	);

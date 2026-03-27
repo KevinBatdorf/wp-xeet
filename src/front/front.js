@@ -17,7 +17,7 @@ const handleCopyButton = () => {
 			let textPrompts;
 			try {
 				textPrompts = JSON.parse(textSection.dataset.copyText);
-			} catch (e) {
+			} catch (_e) {
 				// Fallback if something goes wrong
 				textPrompts = {
 					copied: 'Copied!',
@@ -47,39 +47,29 @@ const handlePlayButton = () => {
 		video.addEventListener('ended', onEnded);
 		// Update "watch on" button text
 		const wo = '[data-continue-watching-text]';
-		const watchOn = video
-			.closest('.xeet-video-container')
-			.querySelector(wo);
+		const watchOn = video.closest('.xeet-video-container').querySelector(wo);
 		if (watchOn) {
 			watchOn.textContent = watchOn.dataset.continueWatchingText;
 		}
-		video
-			.closest('.xeet-video-container')
-			.classList.remove('xeet-is-finished');
+		video.closest('.xeet-video-container').classList.remove('xeet-is-finished');
 	};
 	const onPause = (e) => {
 		e.preventDefault();
 		const video = e.target;
-		video
-			.closest('.xeet-video-container')
-			.classList.remove('xeet-is-playing');
+		video.closest('.xeet-video-container').classList.remove('xeet-is-playing');
 		video.removeEventListener('pause', onPause);
 	};
 	const onEnded = (e) => {
 		e.preventDefault();
 		const video = e.target;
-		video
-			.closest('.xeet-video-container')
-			.classList.add('xeet-is-finished');
+		video.closest('.xeet-video-container').classList.add('xeet-is-finished');
 		video.removeEventListener('ended', onEnded);
 	};
 	xeetPlay.forEach((el) => {
 		el.classList.add('xeet-play-added');
 		el.addEventListener('click', (e) => {
 			e.preventDefault();
-			const video = el
-				.closest('.xeet-video-container')
-				.querySelector('video');
+			const video = el.closest('.xeet-video-container').querySelector('video');
 
 			el.remove();
 			video.play();

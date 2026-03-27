@@ -13,8 +13,7 @@ module.exports = ({ mode, file }) => ({
 				? ['./src/index.tsx', './src/editor/**/*.{ts,tsx}']
 				: ['./src/front/**/*.{ts,tsx}'],
 			important:
-				tailwind.important +
-				(file.endsWith('editor.css') ? '-editor' : ''),
+				tailwind.important + (file.endsWith('editor.css') ? '-editor' : ''),
 		}),
 		(css) =>
 			css.walkRules((rule) => {

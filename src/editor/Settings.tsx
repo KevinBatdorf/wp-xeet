@@ -1,17 +1,17 @@
 import { InspectorControls } from '@wordpress/block-editor';
 import {
-	PanelBody,
 	BaseControl,
-	TextControl,
 	Button,
+	PanelBody,
 	SelectControl,
+	TextControl,
 } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 import type { Attributes } from '..';
 import './editor.css';
+import { useCallback, useEffect, useState } from '@wordpress/element';
 import type { EnrichedTweet } from 'react-tweet';
 import { enrichTweet, useTweet } from 'react-tweet';
-import { useCallback, useEffect, useState } from '@wordpress/element';
 import { extractTwitterId } from '../util';
 
 interface ControlProps {
@@ -20,6 +20,7 @@ interface ControlProps {
 }
 export const Settings = ({ attributes, setAttributes }: ControlProps) => {
 	const { data, isLoading, error } = useTweet(attributes.xeetId);
+	const [inputValue, setInputValue] = useState(attributes.xeetId ?? '');
 	const [hasChanges, setHasChanges] = useState(false);
 	const [isError, setIsError] = useState(false);
 	const showUpdateButton = hasChanges && data && !error && !isLoading;
@@ -36,11 +37,13 @@ export const Settings = ({ attributes, setAttributes }: ControlProps) => {
 		if (isLoading) return;
 		if (!data || error) {
 			setIsError(true);
-			// Only reset this on 404 as other errors I don't think should
+			// Only reset xeetData on 404 as other errors shouldn't
 			// mess with the Tweet data (api is offline, etc)
-			if (error.status === 404) setAttributes({ xeetData: undefined });
-			return setAttributes({ xeetId: undefined });
+			if (error?.status === 404) setAttributes({ xeetData: undefined });
+			return;
 		}
+
+		setIsError(false);
 
 		// If the xeet has not yet been set, set it.
 		const xeetData = enrichTweet(data);
@@ -72,17 +75,16 @@ export const Settings = ({ attributes, setAttributes }: ControlProps) => {
 					<div className="xeet-wp-editor">
 						<TextControl
 							label={__('Xeet ID', 'xeet-wp')}
-							className={error ? 'text-red-500' : undefined}
-							help={__(
-								'Paste a Xeet/Tweet URL or ID.',
-								'xeet-wp',
-							)}
-							value={attributes.xeetId ?? ''}
-							onChange={(maybeId) => {
-								setAttributes({ xeetData: undefined });
-								const xeetId = extractTwitterId(maybeId);
-								setAttributes({ xeetId });
+							className={isError ? 'text-red-500' : undefined}
+							help={__('Paste a Xeet/Tweet URL or ID.', 'xeet-wp')}
+							value={inputValue}
+							onChange={(value) => {
+								setInputValue(value);
 								setIsError(false);
+								const xeetId = extractTwitterId(value);
+								if (xeetId) {
+									setAttributes({ xeetData: undefined, xeetId });
+								}
 							}}
 						/>
 						{isError && (
@@ -98,7 +100,8 @@ export const Settings = ({ attributes, setAttributes }: ControlProps) => {
 									onClick={() => {
 										const xeetData = enrichTweet(data);
 										updateXeet(xeetData);
-									}}>
+									}}
+								>
 									{__('Update data', 'xeet-wp')}
 								</Button>
 							</>
@@ -106,9 +109,7 @@ export const Settings = ({ attributes, setAttributes }: ControlProps) => {
 					</div>
 				</BaseControl>
 			</PanelBody>
-			<PanelBody
-				title={__('Theme Override', 'xeet-wp')}
-				initialOpen={false}>
+			<PanelBody title={__('Theme Override', 'xeet-wp')} initialOpen={false}>
 				<BaseControl id="xeet-theme">
 					<div className="xeet-wp-editor">
 						<SelectControl
