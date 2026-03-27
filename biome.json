@@ -18,7 +18,8 @@
 			"!**/artifacts",
 			"!**/test-results",
 			"!**/wordpress-org",
-			"!**/editor.css"
+			"!**/editor.css",
+			"!**/src/front/vercel"
 		]
 	},
 	"formatter": {
