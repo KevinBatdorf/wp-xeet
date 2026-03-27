@@ -2,7 +2,7 @@
 Contributors:      kbat82
 Tags:              block, tweet, twitter, social, embed
 Tested up to:      6.5
-Stable tag:        1.0.1
+Stable tag:        1.0.2
 License:           GPL-2.0-or-later
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -46,6 +46,12 @@ If you add `data-theme="light"` (or 'dark') anywhere above the block (for exampl
 1. Screenshot 1
 
 == Changelog ==
+
+= 1.0.2 - 2026-03-27 =
+- Switch to Biome for linting/formatting
+- Switch to Playwright + WP Playground for testing
+- Update packages
+- Fix input clearing on invalid tweet URL/ID
 
 = 1.0.1 - 2024-02-19 =
 - Updates the block.json file with a better title

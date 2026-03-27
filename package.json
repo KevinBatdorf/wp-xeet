@@ -20,31 +20,31 @@
 		"rename": "node scripts/rename.mjs"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "^2.4.8",
+		"@biomejs/biome": "^2.4.9",
 		"@playwright/test": "^1.58.2",
-		"@types/wordpress__block-editor": "11.5.10",
-		"@types/wordpress__blocks": "12.5.13",
+		"@types/wordpress__block-editor": "15.0.5",
+		"@types/wordpress__blocks": "15.10.2",
 		"@wordpress/block-editor": "^15.15.0",
 		"@wordpress/e2e-test-utils-playwright": "^1.42.0",
 		"@wordpress/scripts": "^31.7.0",
 		"@wordpress/url": "^4.42.0",
 		"@wp-playground/cli": "^3.1.13",
-		"autoprefixer": "10.4.17",
-		"fast-glob": "3.3.2",
-		"glob": "10.3.10",
-		"postcss-import": "16.0.1",
+		"autoprefixer": "10.4.27",
+		"fast-glob": "3.3.3",
+		"glob": "13.0.6",
+		"postcss-import": "16.1.1",
 		"postcss-safe-important": "2.0.1",
-		"replace-in-file": "7.1.0",
+		"replace-in-file": "8.4.0",
 		"tailwindcss": "3.4.1",
-		"typescript": "5.3.3",
-		"webpack-virtual-modules": "0.6.1"
+		"typescript": "6.0.2",
+		"webpack-virtual-modules": "0.6.2"
 	},
 	"dependencies": {
 		"@wordpress/blocks": "^15.15.0",
 		"@wordpress/element": "^6.42.0",
 		"@wordpress/i18n": "^6.15.0",
 		"copy-to-clipboard": "3.3.3",
-		"date-fns": "3.3.1",
+		"date-fns": "4.1.0",
 		"react-tweet": "3.2.0"
 	}
 }

@@ -20,6 +20,7 @@ interface ControlProps {
 }
 export const Settings = ({ attributes, setAttributes }: ControlProps) => {
 	const { data, isLoading, error } = useTweet(attributes.xeetId);
+	const [inputValue, setInputValue] = useState(attributes.xeetId ?? '');
 	const [hasChanges, setHasChanges] = useState(false);
 	const [isError, setIsError] = useState(false);
 	const showUpdateButton = hasChanges && data && !error && !isLoading;
@@ -36,11 +37,13 @@ export const Settings = ({ attributes, setAttributes }: ControlProps) => {
 		if (isLoading) return;
 		if (!data || error) {
 			setIsError(true);
-			// Only reset this on 404 as other errors I don't think should
+			// Only reset xeetData on 404 as other errors shouldn't
 			// mess with the Tweet data (api is offline, etc)
-			if (error.status === 404) setAttributes({ xeetData: undefined });
-			return setAttributes({ xeetId: undefined });
+			if (error?.status === 404) setAttributes({ xeetData: undefined });
+			return;
 		}
+
+		setIsError(false);
 
 		// If the xeet has not yet been set, set it.
 		const xeetData = enrichTweet(data);
@@ -72,14 +75,16 @@ export const Settings = ({ attributes, setAttributes }: ControlProps) => {
 					<div className="xeet-wp-editor">
 						<TextControl
 							label={__('Xeet ID', 'xeet-wp')}
-							className={error ? 'text-red-500' : undefined}
+							className={isError ? 'text-red-500' : undefined}
 							help={__('Paste a Xeet/Tweet URL or ID.', 'xeet-wp')}
-							value={attributes.xeetId ?? ''}
-							onChange={(maybeId) => {
-								setAttributes({ xeetData: undefined });
-								const xeetId = extractTwitterId(maybeId);
-								setAttributes({ xeetId });
+							value={inputValue}
+							onChange={(value) => {
+								setInputValue(value);
 								setIsError(false);
+								const xeetId = extractTwitterId(value);
+								if (xeetId) {
+									setAttributes({ xeetData: undefined, xeetId });
+								}
 							}}
 						/>
 						{isError && (
