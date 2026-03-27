@@ -1,14 +1,14 @@
-import clsx from 'clsx';
 import { Fragment } from 'react';
+import clsx from 'clsx';
 import {
-	type EnrichedQuotedTweet,
 	type EnrichedTweet,
+	type EnrichedQuotedTweet,
 	getMediaUrl,
-	type TwitterComponents,
+	TwitterComponents,
 } from 'react-tweet';
 import type { MediaDetails } from 'react-tweet/api';
-import { TweetMediaVideo } from './TweetMediaVideo';
 import s from './tweet-media.module.css';
+import { TweetMediaVideo } from './TweetMediaVideo';
 
 const getSkeletonStyle = (media: MediaDetails, itemCount: number) => {
 	let paddingBottom = 56.25; // default of 16x9
@@ -45,8 +45,7 @@ export const TweetMedia = ({ tweet, components, quoted }: Props) => {
 					length > 1 && s.grid2Columns,
 					length === 3 && s.grid3,
 					length > 4 && s.grid2x2,
-				)}
-			>
+				)}>
 				{tweet.mediaDetails?.map((media) => (
 					<Fragment key={media.media_url_https}>
 						{media.type === 'photo' ? (
@@ -55,8 +54,7 @@ export const TweetMedia = ({ tweet, components, quoted }: Props) => {
 								href={tweet.url}
 								className={clsx(s.mediaContainer, s.mediaLink)}
 								target="_blank"
-								rel="noopener noreferrer"
-							>
+								rel="noopener noreferrer">
 								<div
 									className={s.skeleton}
 									style={getSkeletonStyle(media, length)}
@@ -71,8 +69,11 @@ export const TweetMedia = ({ tweet, components, quoted }: Props) => {
 						) : (
 							<div
 								key={media.media_url_https}
-								className={`${s.mediaContainer} xeet-video-container`}
-							>
+								className={
+									s.mediaContainer +
+									' ' +
+									'xeet-video-container'
+								}>
 								<div
 									className={s.skeleton}
 									style={getSkeletonStyle(media, length)}
@@ -95,5 +96,5 @@ type MediaImgProps = {
 };
 
 // https://github.com/vercel/react-tweet/blob/1592c890641baa12e280c8c0420690624643a32a/packages/react-tweet/src/twitter-theme/media-img.tsx
-// biome-ignore lint/a11y/useAltText: alt text is part of `...props`
+// eslint-disable-next-line jsx-a11y/alt-text -- The alt text is part of `...props`
 export const MediaImg = (props: MediaImgProps) => <img {...props} />;
