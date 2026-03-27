@@ -1,7 +1,7 @@
 === Static Posts for Twitter - Embed x.com Tweets without an iframe ===
 Contributors:      kbat82
 Tags:              block, tweet, twitter, social, embed
-Tested up to:      6.5
+Tested up to:      7.0
 Stable tag:        1.0.2
 License:           GPL-2.0-or-later
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
