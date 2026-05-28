@@ -11,8 +11,8 @@ import type { Attributes } from '..';
 import './editor.css';
 import { useCallback, useEffect, useState } from '@wordpress/element';
 import type { EnrichedTweet } from 'react-tweet';
-import { enrichTweet, useTweet } from 'react-tweet';
-import { extractTwitterId } from '../util';
+import { useTweet } from 'react-tweet';
+import { extractTwitterId, safeEnrichTweet } from '../util';
 
 interface ControlProps {
 	attributes: Attributes;
@@ -46,7 +46,7 @@ export const Settings = ({ attributes, setAttributes }: ControlProps) => {
 		setIsError(false);
 
 		// If the xeet has not yet been set, set it.
-		const xeetData = enrichTweet(data);
+		const xeetData = safeEnrichTweet(data);
 		if (!attributes.xeetData) return updateXeet(xeetData);
 
 		// if the id doesn't match ours, update the xeet
@@ -98,7 +98,7 @@ export const Settings = ({ attributes, setAttributes }: ControlProps) => {
 								<Button
 									variant="secondary"
 									onClick={() => {
-										const xeetData = enrichTweet(data);
+										const xeetData = safeEnrichTweet(data);
 										updateXeet(xeetData);
 									}}
 								>
