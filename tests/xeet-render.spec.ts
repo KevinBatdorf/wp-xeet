@@ -74,6 +74,46 @@ test('Block handles missing tweet entity fields without crashing', async ({
 	});
 });
 
+test('Block renders a tweet that contains a quoted tweet', async ({
+	admin,
+	page,
+	editor,
+}) => {
+	await page.route('**/react-tweet.vercel.app/**', async (route) => {
+		const response = await route.fetch();
+		const body = await response.json();
+		if (body?.data) {
+			body.data.quoted_tweet = {
+				...body.data,
+				id_str: '999',
+				text: 'this is the quoted tweet',
+				entities: {
+					hashtags: [],
+					user_mentions: [],
+					urls: [],
+					symbols: [],
+				},
+			};
+		}
+		await route.fulfill({
+			status: 200,
+			contentType: 'application/json',
+			body: JSON.stringify(body),
+		});
+	});
+
+	await admin.createNewPost({ title: 'Quoted tweet test' });
+	await editor.insertBlock({ name: 'kevinbatdorf/xeet-wp' });
+
+	const input = page.getByPlaceholder('Enter URL to embed here...');
+	await input.fill('https://x.com/jack/status/20');
+
+	const block = page.locator('[data-type="kevinbatdorf/xeet-wp"]');
+	await expect(block.locator('.react-tweet-theme')).toBeVisible({
+		timeout: 15000,
+	});
+});
+
 test('Invalid input does not clear the field', async ({
 	admin,
 	page,
