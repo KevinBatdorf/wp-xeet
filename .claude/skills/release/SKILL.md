@@ -33,6 +33,33 @@ A mismatch ships a broken release to WP.org. Always update both.
   ```
   Use today's date. Describe changes in user-facing terms, not implementation.
 
+### 2b. Update "Tested up to" against the latest WordPress beta/RC
+
+`readme.txt` has `Tested up to:        X.Y`. This should reflect the newest
+WordPress version we've actually run our tests against — the upcoming
+**beta/RC** if a release cycle is in flight, otherwise the latest stable.
+**Never use an alpha/nightly** for this — alpha is unstable trunk, not a real
+target.
+
+1. Find the latest stable and the current development version:
+   ```sh
+   curl -s "https://api.wordpress.org/core/version-check/1.7/?channel=development" \
+     | python3 -c "import sys,json; d=json.load(sys.stdin); o={x['response']:x['current'] for x in d['offers']}; print('stable:', o.get('latest')); print('dev:', o.get('development'))"
+   ```
+2. Decide the target version:
+   - If `dev` contains `beta` or `RC` (e.g. `6.9-RC1`) → a cycle is active. Target
+     is that version's major.minor (e.g. `6.9`).
+   - If `dev` contains `alpha` (e.g. `7.1-alpha-62472`) → no beta yet. Target is
+     the latest **stable** major.minor (e.g. `7.0`). Leave "Tested up to" there.
+3. If the target is a beta/RC, run the suite against it before claiming support:
+   ```sh
+   WP_VERSION=<beta-version> npm run test:e2e
+   ```
+   (`playwright.config.ts` and `scripts/run-e2e.mjs` both read `WP_VERSION`;
+   default is `latest`.) Tests must pass against that version.
+4. Set `Tested up to:` to the target major.minor (e.g. `6.9` or `7.0`) — the
+   WordPress.org readme expects `X.Y`, not a beta suffix.
+
 ### 3. Open the release PR
 - Commit (`Bump version to X.Y.Z`), push, `gh pr create`.
 - Body should list the changelog entries.
