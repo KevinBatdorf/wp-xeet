@@ -40,6 +40,40 @@ test('Shows placeholder when block is inserted without a tweet', async ({
 	).toBeVisible();
 });
 
+test('Block handles missing tweet entity fields without crashing', async ({
+	admin,
+	page,
+	editor,
+}) => {
+	// Simulate the bug from PR #30: tweet data where entities arrays are absent.
+	// enrichTweet() iterates over tweet.entities.hashtags etc. with for...of,
+	// throwing "TypeError: r is not iterable" when they are undefined.
+	// Fetch the real tweet then strip entity arrays so the data shape is valid.
+	await page.route('**/react-tweet.vercel.app/**', async (route) => {
+		const response = await route.fetch();
+		const body = await response.json();
+		if (body?.data?.entities) {
+			body.data.entities = {};
+		}
+		await route.fulfill({
+			status: 200,
+			contentType: 'application/json',
+			body: JSON.stringify(body),
+		});
+	});
+
+	await admin.createNewPost({ title: 'Missing entities test' });
+	await editor.insertBlock({ name: 'kevinbatdorf/xeet-wp' });
+
+	const input = page.getByPlaceholder('Enter URL to embed here...');
+	await input.fill('https://x.com/jack/status/20');
+
+	const block = page.locator('[data-type="kevinbatdorf/xeet-wp"]');
+	await expect(block.locator('.react-tweet-theme')).toBeVisible({
+		timeout: 15000,
+	});
+});
+
 test('Invalid input does not clear the field', async ({
 	admin,
 	page,
