@@ -114,6 +114,39 @@ test('Block renders a tweet that contains a quoted tweet', async ({
 	});
 });
 
+test('Block renders a tweet with an empty media array without crashing', async ({
+	admin,
+	page,
+	editor,
+}) => {
+	// Bug: safeEnrichTweet setting entities.media = [] causes fixRange inside
+	// enrichTweet to crash — it checks `if (tweet.entities.media)` which passes
+	// for a truthy empty array, then accesses media[0].indices on undefined.
+	await page.route('**/react-tweet.vercel.app/**', async (route) => {
+		const response = await route.fetch();
+		const body = await response.json();
+		if (body?.data?.entities) {
+			body.data.entities = { ...body.data.entities, media: [] };
+		}
+		await route.fulfill({
+			status: 200,
+			contentType: 'application/json',
+			body: JSON.stringify(body),
+		});
+	});
+
+	await admin.createNewPost({ title: 'Empty media test' });
+	await editor.insertBlock({ name: 'kevinbatdorf/xeet-wp' });
+
+	const input = page.getByPlaceholder('Enter URL to embed here...');
+	await input.fill('https://x.com/jack/status/20');
+
+	const block = page.locator('[data-type="kevinbatdorf/xeet-wp"]');
+	await expect(block.locator('.react-tweet-theme')).toBeVisible({
+		timeout: 15000,
+	});
+});
+
 test('Invalid input does not clear the field', async ({
 	admin,
 	page,
