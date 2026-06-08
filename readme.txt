@@ -2,7 +2,7 @@
 Contributors:      kbat82
 Tags:              block, tweet, twitter, social, embed
 Tested up to:      7.0
-Stable tag:        1.0.3
+Stable tag:        1.0.4
 License:           GPL-2.0-or-later
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -46,6 +46,9 @@ If you add `data-theme="light"` (or 'dark') anywhere above the block (for exampl
 1. Screenshot 1
 
 == Changelog ==
+
+= 1.0.4 - 2026-06-08 =
+- Fix block crash when tweet has missing entity fields (e.g. no hashtags array)
 
 = 1.0.2 - 2026-03-27 =
 - Switch to Biome for linting/formatting
