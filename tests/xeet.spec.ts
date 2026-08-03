@@ -6,12 +6,11 @@ test.beforeEach(async ({ requestUtils }) => {
 
 test('Plugin is active and block is registered', async ({
 	admin,
-	page,
 	editor,
 }) => {
 	await admin.createNewPost({ title: 'Test post' });
 	await editor.insertBlock({ name: 'kevinbatdorf/xeet-wp' });
 	await expect(
-		page.locator('[data-type="kevinbatdorf/xeet-wp"]'),
+		editor.canvas.locator('[data-type="kevinbatdorf/xeet-wp"]'),
 	).toBeVisible();
 });
