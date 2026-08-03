@@ -42,9 +42,7 @@ export const NoTweet = ({ attributes, setAttributes }: NoTweetProps) => {
 							if (xeetId) {
 								setAttributes({ xeetId });
 							} else if (inputValue.trim()) {
-								setError(
-									__('Could not find a valid Xeet ID.', 'xeet-wp'),
-								);
+								setError(__('Could not find a valid Xeet ID.', 'xeet-wp'));
 							}
 						}
 					}}
