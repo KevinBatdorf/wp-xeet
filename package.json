@@ -43,7 +43,7 @@
 		"@wordpress/blocks": "^15.25.0",
 		"@wordpress/element": "^8.4.0",
 		"@wordpress/i18n": "^6.25.0",
-		"copy-to-clipboard": "4.0.2",
+		"copy-to-clipboard": "3.3.3",
 		"date-fns": "4.4.0",
 		"react-tweet": "3.3.1"
 	}
