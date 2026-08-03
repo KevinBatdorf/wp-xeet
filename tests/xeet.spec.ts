@@ -4,10 +4,7 @@ test.beforeEach(async ({ requestUtils }) => {
 	await requestUtils.login();
 });
 
-test('Plugin is active and block is registered', async ({
-	admin,
-	editor,
-}) => {
+test('Plugin is active and block is registered', async ({ admin, editor }) => {
 	await admin.createNewPost({ title: 'Test post' });
 	await editor.insertBlock({ name: 'kevinbatdorf/xeet-wp' });
 	await expect(

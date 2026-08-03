@@ -1,5 +1,5 @@
-import { enrichTweet } from 'react-tweet';
 import type { EnrichedTweet } from 'react-tweet';
+import { enrichTweet } from 'react-tweet';
 
 type Tweet = Parameters<typeof enrichTweet>[0];
 type TweetEntities = Tweet['entities'];
