@@ -30,16 +30,16 @@ test('Renders a tweet when a valid URL is pasted', async ({
 });
 
 test('Shows placeholder when block is inserted without a tweet', async ({
+	page,
 	admin,
 	editor,
 }) => {
 	await admin.createNewPost({ title: 'Empty test' });
 	await editor.insertBlock({ name: 'kevinbatdorf/xeet-wp' });
+	const CANVAS = await canvasRoot(page, editor);
 
 	await expect(
-		editor.canvas
-			.getByLabel('Block: Xeet')
-			.getByText('Paste a link to the Xeet URL'),
+		CANVAS.getByLabel('Block: Xeet').getByText('Paste a link to the Xeet URL'),
 	).toBeVisible();
 });
 
@@ -170,8 +170,6 @@ test('Invalid input does not clear the field', async ({
 
 	// Block should still show the placeholder, not a tweet
 	await expect(
-		editor.canvas
-			.getByLabel('Block: Xeet')
-			.getByText('Paste a link to the Xeet URL'),
+		CANVAS.getByLabel('Block: Xeet').getByText('Paste a link to the Xeet URL'),
 	).toBeVisible();
 });
