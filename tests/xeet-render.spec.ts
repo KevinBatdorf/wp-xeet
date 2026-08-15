@@ -1,24 +1,26 @@
 import { expect, test } from '@wordpress/e2e-test-utils-playwright';
+import { canvasRoot } from './helpers';
 
 test.beforeEach(async ({ requestUtils }) => {
 	await requestUtils.login();
 });
 
 test('Renders a tweet when a valid URL is pasted', async ({
-	admin,
 	page,
+	admin,
 	editor,
 }) => {
 	await admin.createNewPost({ title: 'Render test' });
 	await editor.insertBlock({ name: 'kevinbatdorf/xeet-wp' });
+	const CANVAS = await canvasRoot(page, editor);
 
 	// Type a tweet URL into the placeholder input
-	const input = page.getByPlaceholder('Enter URL to embed here...');
+	const input = CANVAS.getByPlaceholder('Enter URL to embed here...');
 	await input.fill('https://x.com/jack/status/20');
 
 	// Wait for the tweet to render — the NoTweet placeholder disappears
 	// and the xeet data renders inside the block
-	const block = page.locator('[data-type="kevinbatdorf/xeet-wp"]');
+	const block = CANVAS.locator('[data-type="kevinbatdorf/xeet-wp"]');
 	await expect(block.locator('.react-tweet-theme')).toBeVisible({
 		timeout: 30000,
 	});
@@ -28,15 +30,16 @@ test('Renders a tweet when a valid URL is pasted', async ({
 });
 
 test('Shows placeholder when block is inserted without a tweet', async ({
-	admin,
 	page,
+	admin,
 	editor,
 }) => {
 	await admin.createNewPost({ title: 'Empty test' });
 	await editor.insertBlock({ name: 'kevinbatdorf/xeet-wp' });
+	const CANVAS = await canvasRoot(page, editor);
 
 	await expect(
-		page.getByLabel('Block: Xeet').getByText('Paste a link to the Xeet URL'),
+		CANVAS.getByLabel('Block: Xeet').getByText('Paste a link to the Xeet URL'),
 	).toBeVisible();
 });
 
@@ -64,11 +67,12 @@ test('Block handles missing tweet entity fields without crashing', async ({
 
 	await admin.createNewPost({ title: 'Missing entities test' });
 	await editor.insertBlock({ name: 'kevinbatdorf/xeet-wp' });
+	const CANVAS = await canvasRoot(page, editor);
 
-	const input = page.getByPlaceholder('Enter URL to embed here...');
+	const input = CANVAS.getByPlaceholder('Enter URL to embed here...');
 	await input.fill('https://x.com/jack/status/20');
 
-	const block = page.locator('[data-type="kevinbatdorf/xeet-wp"]');
+	const block = CANVAS.locator('[data-type="kevinbatdorf/xeet-wp"]');
 	await expect(block.locator('.react-tweet-theme')).toBeVisible({
 		timeout: 15000,
 	});
@@ -104,11 +108,12 @@ test('Block renders a tweet that contains a quoted tweet', async ({
 
 	await admin.createNewPost({ title: 'Quoted tweet test' });
 	await editor.insertBlock({ name: 'kevinbatdorf/xeet-wp' });
+	const CANVAS = await canvasRoot(page, editor);
 
-	const input = page.getByPlaceholder('Enter URL to embed here...');
+	const input = CANVAS.getByPlaceholder('Enter URL to embed here...');
 	await input.fill('https://x.com/jack/status/20');
 
-	const block = page.locator('[data-type="kevinbatdorf/xeet-wp"]');
+	const block = CANVAS.locator('[data-type="kevinbatdorf/xeet-wp"]');
 	await expect(block.locator('.react-tweet-theme')).toBeVisible({
 		timeout: 15000,
 	});
@@ -137,25 +142,27 @@ test('Block renders a tweet with an empty media array without crashing', async (
 
 	await admin.createNewPost({ title: 'Empty media test' });
 	await editor.insertBlock({ name: 'kevinbatdorf/xeet-wp' });
+	const CANVAS = await canvasRoot(page, editor);
 
-	const input = page.getByPlaceholder('Enter URL to embed here...');
+	const input = CANVAS.getByPlaceholder('Enter URL to embed here...');
 	await input.fill('https://x.com/jack/status/20');
 
-	const block = page.locator('[data-type="kevinbatdorf/xeet-wp"]');
+	const block = CANVAS.locator('[data-type="kevinbatdorf/xeet-wp"]');
 	await expect(block.locator('.react-tweet-theme')).toBeVisible({
 		timeout: 15000,
 	});
 });
 
 test('Invalid input does not clear the field', async ({
-	admin,
 	page,
+	admin,
 	editor,
 }) => {
 	await admin.createNewPost({ title: 'Invalid input test' });
 	await editor.insertBlock({ name: 'kevinbatdorf/xeet-wp' });
+	const CANVAS = await canvasRoot(page, editor);
 
-	const input = page.getByPlaceholder('Enter URL to embed here...');
+	const input = CANVAS.getByPlaceholder('Enter URL to embed here...');
 	await input.fill('not-a-valid-url');
 
 	// Field should still have the typed value
@@ -163,6 +170,6 @@ test('Invalid input does not clear the field', async ({
 
 	// Block should still show the placeholder, not a tweet
 	await expect(
-		page.getByLabel('Block: Xeet').getByText('Paste a link to the Xeet URL'),
+		CANVAS.getByLabel('Block: Xeet').getByText('Paste a link to the Xeet URL'),
 	).toBeVisible();
 });
