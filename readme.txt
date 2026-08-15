@@ -2,7 +2,7 @@
 Contributors:      kbat82
 Tags:              block, tweet, twitter, social, embed
 Tested up to:      7.1
-Stable tag:        1.0.4
+Stable tag:        1.0.5
 License:           GPL-2.0-or-later
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -46,6 +46,10 @@ If you add `data-theme="light"` (or 'dark') anywhere above the block (for exampl
 1. Screenshot 1
 
 == Changelog ==
+
+= 1.0.5 - 2026-08-15 =
+- Tested up to WordPress 7.1
+- Chore: Update GitHub Actions off the deprecated Node 20 runtime
 
 = 1.0.4 - 2026-06-08 =
 - Fix block crash when tweet has missing entity fields (e.g. no hashtags array)
